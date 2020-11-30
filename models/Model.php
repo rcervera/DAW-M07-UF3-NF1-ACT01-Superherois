@@ -52,27 +52,7 @@ class Model {
          return $res;
     }
 
-    public function numPages($num_regs) {
-
-        $sql = "select count(*) from ".$this->taula;
-        $resultat = $this->bd->prepare($sql);
-        $resultat->execute();
-        $reg = $resultat->fetch(); // recuperem el registre
-        $total_prods = $reg[0]; // la informaciÃ³ estarÃ  
-        // en la primera posiciÃ³ del array
-        $total_pags = ceil($total_prods / $num_regs);
-        return $total_pags;
-    }
-
-    public function getPage($pagina, $numRegs) {
-        $inici = ($pagina - 1) * $numRegs;
-        $sentencia = $this->bd->prepare("SELECT * from ".$this->taula." LIMIT :ini, :numr");
-        $sentencia->bindValue(':ini', $inici, PDO::PARAM_INT);
-        $sentencia->bindValue(':numr', $numRegs, PDO::PARAM_INT);
-        $sentencia->execute();
-        $resultat = $sentencia->fetchAll(PDO::FETCH_ASSOC);
-        return $resultat;
-    }
+        
 
 }
 
