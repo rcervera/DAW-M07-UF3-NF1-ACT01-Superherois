@@ -203,9 +203,8 @@ class ControlSuperheroes {
         if ($res)
             $_SESSION['missatge'] = "Superheroi eliminat";
         else
-            $_SESSION['missatge'] = "Superheroi no s'ha pogut esborrar!";
-       
-        $_SESSION['missatge'] = $this->missatge;
+            $_SESSION['missatge'] = "Superheroi no s'ha pogut esborrar!";       
+        
         header("Location: index.php?control=ControlSuperheroes");
     }
 
