@@ -12,7 +12,7 @@ class Usuaris extends Model{
 		$sentencia->bindValue(':nom',$user);
 		$sentencia->bindValue(':pwd', md5($pwd));
 		$sentencia->execute();
-		$resultat = $sentencia->fetch();
+		$resultat = $sentencia->fetch(PDO::FETCH_ASSOC);
 		if ($resultat==null)
 			return false;
 		else

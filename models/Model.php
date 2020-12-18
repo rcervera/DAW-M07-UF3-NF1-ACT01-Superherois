@@ -4,15 +4,16 @@ class Model {
 
     protected $bd;
     protected $usuari="root";
-    protected $password="";
+    protected $password="usuari";
     protected $taula;
-    protected $database ="UF3";
+    protected $database ="supersBD";
+    protected $host = "localhost";
 
     function __construct() {
 		 
 		try {
 			
-			$this->bd = new PDO('mysql:host=localhost;dbname='.$this->database, 
+			$this->bd = new PDO('mysql:host='.$this->host.';dbname='.$this->database, 
                      $this->usuari, $this->password, array(
     PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
     PDO::ATTR_EMULATE_PREPARES => false
